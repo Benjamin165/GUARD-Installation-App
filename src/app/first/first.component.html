@@ -1,0 +1,19 @@
+<div class="container">
+    
+</div>
+<div class="wrapper fadeInDown">
+    <div id="formContent">   
+        <div class="error-message" *ngIf="errorMessage">
+            {{ errorMessage }}
+          </div>
+        <div id="interactive" class="viewport">
+            <!-- QuaggaJS will populate this element -->
+          </div>
+          
+        <div class="text">
+            Please Scan the Geobrugg GUARD QR Code
+        </div>
+        <button routerLink="/2" routerLinkActive="active">Test next page</button>
+  
+    </div>
+  </div>

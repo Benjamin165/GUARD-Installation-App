@@ -1,4 +1,25 @@
-<h1>Log in with your Geobrugg account</h1>
-<input placeholder="nickname"/>
-<input placeholder="******"/>
-<button type="submit">Login</button>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="/src/assets/logo-144x144.png" id="icon" alt="User Icon" />
+        <p id="title">Log in with your Geobrugg account</p>
+      </div>
+  
+      <!-- Login Form -->
+      <form>
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>      
+      <button routerLink="/1" routerLinkActive="active">Test next page</button>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div>

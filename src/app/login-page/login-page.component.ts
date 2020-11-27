@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UpdateService } from '../update.service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private updateService: UpdateService )
+    { }
 
   ngOnInit(): void {
+    setTimeout(() => { // check for updates after 10 seconds
+      this.updateService.checkForUpdates();
+    }, 10000);
   }
 
 }
