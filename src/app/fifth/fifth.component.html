@@ -9,6 +9,9 @@
       </div>
   
       <!-- Geolocation -->
+      <input type="text" id="lat" class="fadeIn second" name="position" placeholder="latitude"><br>
+      <input type="text" id="lng" class="fadeIn second" name="position" placeholder="longitude"><br>
+      <button type="button" (click)="getLocation()" class="btn btn-primary">Locate me</button>
       <p id="demo"></p>
       <form>        
         <input routerLink="/6" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next">

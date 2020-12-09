@@ -9,10 +9,17 @@ import { CurrentdeviceService } from '../currentdevice.service';
 export class SecondComponent implements OnInit {
 
   constructor(
-    private CurDevService: CurrentdeviceService,
+    public CurDevService: CurrentdeviceService,
   ) { }
 
   ngOnInit(): void {
   }
+  radios = document.getElementsByName('application');
+  noneChecked: boolean = true;
+
+  noneCheckedTest() {
+    //TODO
+  }
+
 
 }

@@ -9,7 +9,7 @@ import { CurrentdeviceService } from '../currentdevice.service';
 export class FourthComponent implements OnInit {
 
   constructor(
-    private CurDevService: CurrentdeviceService,
+    public CurDevService: CurrentdeviceService,
     ) { }
 
   ngOnInit(): void {

@@ -24,7 +24,7 @@ export class FirstComponent implements AfterViewInit {
   constructor(
     private changeDetectorRef: ChangeDetectorRef,    
     private beepService: BeepService,   
-    private CurDevService: CurrentdeviceService,
+    public CurDevService: CurrentdeviceService,
     private route: ActivatedRoute,
   ) { }
   ngAfterViewInit(): void {
@@ -59,7 +59,7 @@ export class FirstComponent implements AfterViewInit {
         drawingCanvas.style.display = 'none';
         });
       Quagga.onDetected((res) => {
-        window.alert(`code: ${res.codeResult.code}`);
+        this.onBarcodeScanned(res.codeResult.code)
       })
     }
   });
@@ -74,10 +74,12 @@ onBarcodeScanned(code: string) {
   }
 
   // create new guard to Add, todo: check if guard is already in list
-  var device: Device;
-  device.id = code;
+  this.CurDevService.createNew(code);
 
-  this.toAdd.addDevice(device);
+  this.toAdd.addDevice(this.CurDevService.currentDevice);
+
+  document.getElementById("formContent").style.display = "none";
+  document.getElementById("success").style.display = "";
 
   this.lastScannedCode = code;
   this.lastScannedCodeDate = now;

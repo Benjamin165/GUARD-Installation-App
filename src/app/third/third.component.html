@@ -11,12 +11,20 @@
       <!-- Login Form -->
       <form>
         <label class="fadeIn second" for="system">Select your system: </label><br>        
-        <select class="fadeIn second" name="system" id="system">
+        <select *ngIf="isRockfallSystem()" class="fadeIn second" name="system" id="system">
             <option value="gbe">GBE</option>
             <option value="rxe">RXE</option>
-            <option value="tsc">TSC</option>
-            <option value="isotop">Isotop</option>
-        </select>      
+            <option value="other">other</option>
+        </select>    
+        <select *ngIf="isDFSystem()" class="fadeIn second" name="system" id="system">
+            <option value="ux">UX</option>
+            <option value="vx">VX</option>
+            <option value="other">other</option>
+        </select>  
+        <select *ngIf="isAvalancheSystem()" class="fadeIn second" name="system" id="system">
+            <option value="spider">Spider AVA</option>
+            <option value="other">other</option>
+        </select>    
         <br>  
         <input type="text" id="ropediam" class="fadeIn third" name="info" placeholder="rope diameter"> 
         <br>

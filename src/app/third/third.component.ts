@@ -9,10 +9,22 @@ import { CurrentdeviceService } from '../currentdevice.service';
 export class ThirdComponent implements OnInit {
 
   constructor(
-    private CurDevService: CurrentdeviceService,
+    public CurDevService: CurrentdeviceService,
     ) { }
 
   ngOnInit(): void {
+  }
+
+  isRockfallSystem() {
+
+  }
+
+  isDFSystem() {
+
+  }
+
+  isAvalancheSystem() {
+
   }
 
 }

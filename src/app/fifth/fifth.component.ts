@@ -8,14 +8,11 @@ import { CurrentdeviceService } from '../currentdevice.service';
   styleUrls: ['./fifth.component.scss']
 })
 export class FifthComponent implements OnInit {
-  
-  x = document.getElementById("demo");  
   constructor(
-    private CurDevService: CurrentdeviceService,
+    public CurDevService: CurrentdeviceService,
     ) { }
 
   ngOnInit(): void {
-    this.getLocation();
   }
 
   getLocation() {
@@ -29,8 +26,8 @@ export class FifthComponent implements OnInit {
   }
 
   showPosition(position) {
-    this.x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;    
+    document.getElementById("lat").nodeValue = "Latitude: " + position.coords.latitude;
+    document.getElementById("lng").nodeValue = "<br>Longitude: " + position.coords.longitude;    
     this.CurDevService.currentDevice.lat = position.latitude;
     this.CurDevService.currentDevice.lng = position.longitude;
   }
