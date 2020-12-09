@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CurrentdeviceService } from '../currentdevice.service';
 
 @Component({
-  selector: 'app-second',
-  templateUrl: './second.component.html',
-  styleUrls: ['./second.component.scss']
+  selector: 'app-third',
+  templateUrl: './third.component.html',
+  styleUrls: ['./third.component.scss']
 })
-export class SecondComponent implements OnInit {
+export class ThirdComponent implements OnInit {
 
   constructor(
     private CurDevService: CurrentdeviceService,
-  ) { }
+    ) { }
 
   ngOnInit(): void {
   }

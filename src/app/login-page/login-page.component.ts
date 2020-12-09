@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UpdateService } from '../update.service';
+import { CurrentdeviceService } from '../currentdevice.service';
 
 @Component({
   selector: 'app-login-page',
@@ -18,4 +19,5 @@ export class LoginPageComponent implements OnInit {
     }, 10000);
   }
 
+  //TODO: Betty verknüpfung?
 }

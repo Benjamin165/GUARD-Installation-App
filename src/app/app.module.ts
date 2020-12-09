@@ -13,6 +13,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ThirdComponent } from './third/third.component';
+import { FourthComponent } from './fourth/fourth.component';
+import { FifthComponent } from './fifth/fifth.component';
+import { SixthComponent } from './sixth/sixth.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { environment } from '../environments/environment';
     LoginPageComponent,
     FirstComponent,
     SecondComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    ThirdComponent,
+    FourthComponent,
+    FifthComponent,
+    SixthComponent
   ],
   imports: [
     BrowserModule,

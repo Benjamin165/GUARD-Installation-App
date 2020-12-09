@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ElementRef, ViewCh
 import { BeepService } from '../beep.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DevicesToAdd } from '../devicesToAdd';
+import { CurrentdeviceService } from '../currentdevice.service';
 
 import Quagga from 'quagga';
 import { Device } from '../device';
@@ -22,7 +23,8 @@ export class FirstComponent implements AfterViewInit {
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,    
-    private beepService: BeepService,
+    private beepService: BeepService,   
+    private CurDevService: CurrentdeviceService,
     private route: ActivatedRoute,
   ) { }
   ngAfterViewInit(): void {
@@ -52,6 +54,10 @@ export class FirstComponent implements AfterViewInit {
       this.errorMessage = `QuaggaJS could not be initialized, err: ${err}`;
     } else {
       Quagga.start();
+      Quagga.onProcessed(result => {
+        const drawingCanvas = Quagga.canvas.dom.overlay;
+        drawingCanvas.style.display = 'none';
+        });
       Quagga.onDetected((res) => {
         window.alert(`code: ${res.codeResult.code}`);
       })
@@ -78,5 +84,5 @@ onBarcodeScanned(code: string) {
   this.beepService.beep();
   this.changeDetectorRef.detectChanges();
 }
-
+  //TODO: check if device is sending, give success or error message
 }
