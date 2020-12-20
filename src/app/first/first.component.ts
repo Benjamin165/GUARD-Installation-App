@@ -1,90 +1,61 @@
 import { Component, OnInit, AfterViewInit, ChangeDetectorRef, ElementRef, ViewChild } from '@angular/core';
-import { BeepService } from '../beep.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DevicesToAdd } from '../devicesToAdd';
 import { CurrentdeviceService } from '../currentdevice.service';
+import { BarcodeFormat } from '@zxing/library';
 
-import Quagga from 'quagga';
-import { Device } from '../device';
+
 
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
   styleUrls: ['./first.component.scss']
 })
-export class FirstComponent implements AfterViewInit {
+export class FirstComponent implements OnInit {
 
-  errorMessage: string;
+  allowedFormats = [ BarcodeFormat.QR_CODE ]
+
 
   toAdd: DevicesToAdd;
 
-  private lastScannedCode: string;
-  private lastScannedCodeDate: number;
+  lastScannedCode: string;
 
   constructor(
-    private changeDetectorRef: ChangeDetectorRef,    
-    private beepService: BeepService,   
+    private changeDetectorRef: ChangeDetectorRef,
     public CurDevService: CurrentdeviceService,
     private route: ActivatedRoute,
   ) { }
-  ngAfterViewInit(): void {
-    if (!navigator.mediaDevices || !(typeof navigator.mediaDevices.getUserMedia === 'function')) {
-      this.errorMessage = 'getUserMedia is not supported';
-      return;
-    }
+  ngOnInit(): void {
 
-  Quagga.init({
-    inputStream: {
-      constraints: {
-        facingMode: 'environment' // restrict camera type
-      },
-      area: { // defines rectangle of the detection
-        top: '40%',    // top offset
-        right: '0%',  // right offset
-        left: '0%',   // left offset
-        bottom: '40%'  // bottom offset
-      },
-    },
-    decoder: {
-      readers: ['ean_reader'] // restrict code types
-    },
-  },
-  (err) => {
-    if (err) {
-      this.errorMessage = `QuaggaJS could not be initialized, err: ${err}`;
-    } else {
-      Quagga.start();
-      Quagga.onProcessed(result => {
-        const drawingCanvas = Quagga.canvas.dom.overlay;
-        drawingCanvas.style.display = 'none';
-        });
-      Quagga.onDetected((res) => {
-        this.onBarcodeScanned(res.codeResult.code)
-      })
-    }
-  });
-}
-
-onBarcodeScanned(code: string) {
-
-  // ignore duplicates for an interval of 1.5 seconds
-  const now = new Date().getTime();
-  if (code === this.lastScannedCode && (now < this.lastScannedCodeDate + 1500)) {
-    return;
+  }
+  onSuccess(result: string) {
+    window.alert('Success, scanned ID is: ' + result);
+    this.lastScannedCode = result;
+    document.getElementById('scanner-wrapper').style.display = 'none';
+    document.getElementById('instruction').style.display = 'none';
+    document.getElementById('result').style.display = 'inline-block';
+    document.getElementById('submit').style.display = 'inline-block';
+    document.getElementById('again').style.display = 'inline-block';
+    document.getElementById('result').innerHTML = 'Scanned device ID: '  + this.lastScannedCode + '<br>';
   }
 
+  handleError(error: string){
+    window.alert(error);
+  }
+
+  scanAgain(){    
+    document.getElementById('scanner-wrapper').style.display = '';
+    document.getElementById('instruction').style.display = '';
+    document.getElementById('result').style.display = 'none';
+    document.getElementById('again').style.display = 'none';
+    document.getElementById('submit').style.display = 'inline-block';
+  }
+
+  handleQrCodeResult() {
   // create new guard to Add, todo: check if guard is already in list
-  this.CurDevService.createNew(code);
+  this.CurDevService.createNew(this.lastScannedCode);
 
-  this.toAdd.addDevice(this.CurDevService.currentDevice);
-
-  document.getElementById("formContent").style.display = "none";
-  document.getElementById("success").style.display = "";
-
-  this.lastScannedCode = code;
-  this.lastScannedCodeDate = now;
-  this.beepService.beep();
-  this.changeDetectorRef.detectChanges();
+  console.log(this.CurDevService.currentDevice.id);
 }
   //TODO: check if device is sending, give success or error message
 }

@@ -7,6 +7,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +18,11 @@ import { ThirdComponent } from './third/third.component';
 import { FourthComponent } from './fourth/fourth.component';
 import { FifthComponent } from './fifth/fifth.component';
 import { SixthComponent } from './sixth/sixth.component';
+import { CurrentdeviceService } from './currentdevice.service';
+import { SeventhComponent } from './seventh/seventh.component';
+import { EigthComponent } from './eigth/eigth.component';
+import { NinthComponent } from './ninth/ninth.component';
+import { TenthComponent } from './tenth/tenth.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,11 @@ import { SixthComponent } from './sixth/sixth.component';
     ThirdComponent,
     FourthComponent,
     FifthComponent,
-    SixthComponent
+    SixthComponent,
+    SeventhComponent,
+    EigthComponent,
+    NinthComponent,
+    TenthComponent
   ],
   imports: [
     BrowserModule,
@@ -37,9 +47,10 @@ import { SixthComponent } from './sixth/sixth.component';
 		HttpClientModule,
 		FormsModule,
     ReactiveFormsModule,
+    ZXingScannerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [CurrentdeviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

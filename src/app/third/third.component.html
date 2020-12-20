@@ -5,31 +5,30 @@
       <!-- Icon -->
       <div class="fadeIn first">
         <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
-        <p id="title">Placeholder: What type of system is your GUARD installed on? (image)</p>
+        <p id="title">What type of system is your GUARD installed on?</p>
+        <!--- images missing -->
       </div>
   
-      <!-- Login Form -->
-      <form>
-        <label class="fadeIn second" for="system">Select your system: </label><br>        
-        <select *ngIf="isRockfallSystem()" class="fadeIn second" name="system" id="system">
-            <option value="gbe">GBE</option>
-            <option value="rxe">RXE</option>
-            <option value="other">other</option>
-        </select>    
-        <select *ngIf="isDFSystem()" class="fadeIn second" name="system" id="system">
-            <option value="ux">UX</option>
-            <option value="vx">VX</option>
-            <option value="other">other</option>
-        </select>  
-        <select *ngIf="isAvalancheSystem()" class="fadeIn second" name="system" id="system">
-            <option value="spider">Spider AVA</option>
-            <option value="other">other</option>
-        </select>    
-        <br>  
-        <input type="text" id="ropediam" class="fadeIn third" name="info" placeholder="rope diameter"> 
-        <br>
-        <input routerLink="/4" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next">
-      </form> 
+      
+      <label class="fadeIn second" for="system">Select your system: </label><br>        
+      <select *ngIf="isRockfallSystem()" class="fadeIn second" name="system" id="system" [(ngModel)]='selectedLevel' (change)="selected()">
+          <option value="gbe">GBE</option>
+          <option value="rxe">RXE</option>
+          <option value="other">other</option>
+      </select>    
+      <select *ngIf="isDFSystem()" class="fadeIn second" name="system" id="system" [(ngModel)]='selectedLevel' (change)="selected()">
+          <option value="ux">UX</option>
+          <option value="vx">VX</option>
+          <option value="other">other</option>
+      </select>  
+      <select *ngIf="isAvalancheSystem()" class="fadeIn second" name="system" id="system" [(ngModel)]='selectedLevel' (change)="selected()">
+          <option value="spider">Spider AVA</option>
+          <option value="other">other</option>
+      </select>    
+      <br>  
+      <input type="text" id="ropediam" class="fadeIn third" name="info" placeholder="rope diameter" [(ngModel)]='ropediam'> 
+      <br>
+      <input routerLink="/4" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next" [disabled]='inputEmpty()' (click)='submitData()'>
   
   
     </div>

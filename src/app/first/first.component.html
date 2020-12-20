@@ -2,21 +2,22 @@
     
 </div>
 <div class="wrapper fadeInDown">
-    <div id="formContent">   
-        <div class="error-message" *ngIf="errorMessage">
-            {{ errorMessage }}
-          </div>
-        <div id="interactive" class="viewport">
-            <!-- QuaggaJS will populate this element -->
-          </div>
-          
-        <div class="text">
-            Please Scan the Geobrugg GUARD QR Code
+    <div id="formContent">
+      <div class="fadeIn first">
+        <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
+        <p id='instruction'>Scan the Geobrugg GUARD QR Code</p>
+      </div>
+        <div id="scanner-wrapper" class="fadeIn second">
+        <zxing-scanner 
+          [formats]="allowedFormats"
+          (scanSuccess)="onSuccess($event)"
+          (scanError)="handleError($event)"
+        ></zxing-scanner>
         </div>
-        <button routerLink="/2" routerLinkActive="active">Test next page</button>
+        <p id="result" style="display:none"></p>
+        <button style="display:none" id="again" (click)="scanAgain()">Scan again</button>
+        
+        <button style="display:none" id="submit" routerLink="/2" routerLinkActive="active" (click)="handleQrCodeResult()">Submit</button>
   
-    </div>
-    <div style="display: none" id="success">
-      The device {{this.CurDevService.currentDevice.id}} has been scanned.
     </div>
   </div>

@@ -8,19 +8,17 @@
         <p id="title">Placeholder: What type of application is your GUARD installed on?</p>
       </div>
   
-      <!-- Login Form -->
-      <form>
-        <input type="radio" id="application" class="fadeIn second" name="application" value="rockfall">
-        <label class="fadeIn second" for="rockfall">rockfall protection system</label><br>
-        <input type="radio" id="application" class="fadeIn second" name="application" value="debrisflow">
-        <label class="fadeIn second" for="debrisflow">debris protection system</label><br>
-        <input type="radio" id="application" class="fadeIn second" name="application" value="avalanche">
-        <label class="fadeIn second" for="avalanche">avalanche protection system</label><br>
-        <input type="radio" id="application" class="fadeIn second" name="application" value="other">
-        <label class="fadeIn second" for="other">other</label><br>
-        <input routerLink="/3" routerLinkActive="active" type="submit" class="fadeIn fourth" [disabled]="noneChecked" value="Next">
-      </form> 
-  
+      <div *ngFor="let application of applications">
+        <input
+        class='fadeIn second'
+        type="radio"
+        name='application'
+        value='{{application}}'
+        (change)='radioChangeHandler($event)'>
+        <i>{{application}}</i>
+      </div>
+      <p><span>You selected: </span><b>{{selectedApplication}}</b></p> 
+      <input routerLink="/3" routerLinkActive="active" type='submit' [disabled]='inputEmpty()' (click)='setApplication()' class='fadeIn third'> 
   
     </div>
   </div>
