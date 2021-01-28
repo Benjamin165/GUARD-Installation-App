@@ -9,16 +9,7 @@
       </div>
   
       <!-- Geolocation -->
-      <div id='map' style='width: 400px; height: 300px;'></div>
-      <script>
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fsb25nbyIsImEiOiJja2toNnI4MzgxczY0MzBvYzV6MGhhNjBzIn0.d4PrxHUVUgK5knZk8G_hLg';
-        var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v11',
-          center: '{{this.latitude}}, {{this.longitude}}'
-        });
-        map.addControl(new mapboxgl.NavigationControl());
-      </script>
+      <div id='map' class="map-container" style='display:none; width: 400px; height: 300px;'></div>
       <input type="text" id="lat" class="fadeIn second" name="position" placeholder="latitude" [(ngModel)]='lat'><br>
       <input type="text" id="lng" class="fadeIn second" name="position" placeholder="longitude" [(ngModel)]='lng'><br>
       <button type="button" (click)="getLocation()" class="btn btn-primary">Locate me</button>
