@@ -15,4 +15,16 @@ export class SixthComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isRockfallSystem() {
+    return this.CurDevService.currentDevice.application === 'rockfall protection system'
+  }
+
+  isDFSystem() {
+    return this.CurDevService.currentDevice.application === 'debris flow protection system';
+  }
+
+  isAvalancheSystem() {
+    return this.CurDevService.currentDevice.application === 'avalanche protection system';
+  }
+
 }
