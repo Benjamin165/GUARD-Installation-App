@@ -9,10 +9,14 @@
       </div>
   
       <!-- Picture upload -->
-      <form>
-        <input type="file" accept="image/*" class="project_picture_file_input" id="project_picture_file_upload" capture>
-        <br>
+      <form class="fadeIn second">
+        <img src="https://projectdetailsjson.netlify.app/picturesjpeg/rock_total.png" id="rock" alt="Rockfall" *ngIf=isRockfallSystem()/>
+        <img src="https://projectdetailsjson.netlify.app/picturesjpeg/hydro.png" id="debris" alt="DebrisFlow" *ngIf=isDFSystem()/>
+        <img src="https://projectdetailsjson.netlify.app/picturesjpeg/snow_ava.png" id="ava" alt="Avalanche" *ngIf=isAvalancheSystem()/>
         <input routerLink="/7" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next">
+        <div class="progress">
+          <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
       </form> 
   
   

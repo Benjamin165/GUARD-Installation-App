@@ -15,6 +15,9 @@
       <input type="date" id="date" class="fadeIn third" name="info" value="" [(ngModel)]='date'>
       <br>
       <input routerLink="/5" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next" [disabled]='inputEmpty()' (click)='submitData()'>
+      <div class="progress">
+        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
   
   
     </div>

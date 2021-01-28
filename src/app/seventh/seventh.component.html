@@ -5,14 +5,17 @@
       <!-- Icon -->
       <div class="fadeIn first">
         <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
-        <p id="title">Placeholder: Please provide the following information (image)</p>
+        <p id="title">Placeholder: Please provide an overwieving picture</p>
       </div>
   
       <!-- Picture upload -->
       <form>
-        <input type="file" accept="image/*" class="project_picture_file_input" id="project_picture_file_upload" capture>
+        <input type="file" accept="image/*;capture=camera" class="project_picture_file_input" id="project_picture_file_upload">
         <br>
-        <input routerLink="/7" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next">
+        <input routerLink="/8" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next">
+        <div class="progress">
+          <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 87.5%" aria-valuenow="87.5" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
       </form> 
   
   

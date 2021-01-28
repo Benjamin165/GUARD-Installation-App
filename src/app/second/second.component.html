@@ -19,6 +19,8 @@
       </div>
       <p><span>You selected: </span><b>{{selectedApplication}}</b></p> 
       <input routerLink="/3" routerLinkActive="active" type='submit' [disabled]='inputEmpty()' (click)='setApplication()' class='fadeIn third'> 
-  
+      <div class="progress">
+        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
     </div>
   </div>

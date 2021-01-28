@@ -7,6 +7,8 @@ import { ThirdComponent } from './third/third.component';
 import { FourthComponent } from './fourth/fourth.component';
 import { FifthComponent } from './fifth/fifth.component';
 import { SixthComponent } from './sixth/sixth.component';
+import { SeventhComponent } from './seventh/seventh.component';
+import { EigthComponent } from './eigth/eigth.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: '4', component: FourthComponent },
   { path: '5', component: FifthComponent },
   { path: '6', component: SixthComponent },
+  { path: '7', component: SeventhComponent },
+  { path: '8', component: EigthComponent },
   { path: '**', component: LoginPageComponent }, 
 ];
 
