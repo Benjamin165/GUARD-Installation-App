@@ -1,0 +1,19 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
+        <p id="title">Please provide the following information</p>
+      </div>
+  
+      <input type="text" id="projname" class="fadeIn second" name="info" placeholder="customer project name" [(ngModel)]='projname'>
+      <input type="text" id="company" class="fadeIn second" name="info" placeholder="installation company" [(ngModel)]='company'> 
+      <br>
+      <br>
+      <input routerLink="/buildings" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Add buildings" [disabled]='inputEmpty()' (click)='submitData()'>
+  
+  
+    </div>
+  </div>

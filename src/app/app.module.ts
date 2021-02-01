@@ -23,6 +23,11 @@ import { SeventhComponent } from './seventh/seventh.component';
 import { EigthComponent } from './eigth/eigth.component';
 import { NinthComponent } from './ninth/ninth.component';
 import { TenthComponent } from './tenth/tenth.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { BuildingsComponent } from './buildings/buildings.component';
+import { GuardsComponent } from './guards/guards.component';
+import { ProjectmetaComponent } from './projectmeta/projectmeta.component';
+import { BuildingmetaComponent } from './buildingmeta/buildingmeta.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,12 @@ import { TenthComponent } from './tenth/tenth.component';
     SeventhComponent,
     EigthComponent,
     NinthComponent,
-    TenthComponent
+    TenthComponent,
+    ProjectsComponent,
+    BuildingsComponent,
+    GuardsComponent,
+    ProjectmetaComponent,
+    BuildingmetaComponent
   ],
   imports: [
     BrowserModule,

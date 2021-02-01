@@ -21,6 +21,5 @@ export class LoginPageComponent implements AfterViewInit {
       this.updateService.checkForUpdates();
     }, 10000);
   }
-
-  //TODO: Graphana verknüpfung
+  //TODO: Ritune verknüpfung
 }

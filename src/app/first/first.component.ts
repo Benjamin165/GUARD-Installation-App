@@ -55,7 +55,6 @@ export class FirstComponent implements OnInit {
   // create new guard to Add, todo: check if guard is already in list
   this.CurDevService.createNew(this.lastScannedCode);
 
-  console.log(this.CurDevService.currentDevice.id);
 }
   //TODO: check if device is sending, give success or error message
 }

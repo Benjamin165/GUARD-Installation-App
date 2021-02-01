@@ -10,14 +10,13 @@ h1 {
     flex-direction: column; 
     justify-content: center;
     width: 100%;
+    min-height: 100%;
     padding: 20px;
-    max-height: 100%;
   }
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
     background: #fff;
-    overflow-y: scroll;
     padding: 30px;
     width: 90%;
     max-width: 450px;
@@ -70,23 +69,18 @@ h1 {
     -ms-transform: scale(0.95);
     transform: scale(0.95);
   }
-
-  label {
-    align-self: left;
-  }
   
-  input[type=text], [type=date], [type=number] {
+  input[type=text] {
     background-color: #f6f6f6;
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
-    align-items: right;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 5px;
-    width: 50%;
+    width: 85%;
     border: 2px solid #f6f6f6;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -222,28 +216,5 @@ h1 {
     margin-top: 1vh;
     margin-bottom: 1vh;
     width:50%;
-  }
-
-  #datetag {
-    margin-top: 2vh;
-    margin-bottom: 0.1vh;
-  }
-
-  ::-webkit-scrollbar-track
-  {
-    border-radius: 10px;
-    background-color: #F5F5F5, 0.6;
-  }
-  
-  ::-webkit-scrollbar
-  {
-    width: 12px;
-    background-color: #F5F5F5, 0.6;
-  }
-  
-  ::-webkit-scrollbar-thumb
-  {
-    border-radius: 10px;
-    background-color: rgba(59, 59, 58);
   }
   

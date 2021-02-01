@@ -5,12 +5,29 @@
       <!-- Icon -->
       <div class="fadeIn first">
         <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
-        <p id="title">Placeholder</p>
+        <p id="title"><b>Check your inputs</b></p>
       </div>
   
-      <!-- Picture upload -->
-      <form>
-        <input routerLink="/9" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next">
+      <form>        
+      <label class="fadeIn second" for="system"><b>ID: </b></label>
+      <input type="text" id="devId" class="fadeIn second" name="info" value="{{this.device.currentDevice.id}}"><br>
+      <label class="fadeIn second" for="system"><b>Application: </b></label>
+      <input type="text" id="appl" class="fadeIn second" name="info" value="{{this.device.currentDevice.application}}"><br>
+      <label class="fadeIn second" for="system"><b>System: </b></label>
+      <input type="text" id="sys" class="fadeIn second" name="info" value="{{this.device.currentDevice.system}}"><br>
+      <label class="fadeIn second" for="system"><b>Rope Diameter: </b></label>
+      <input type="text" id="ropeDia" class="fadeIn second" name="info" value="{{this.device.currentDevice.ropediam}}"><br>
+      <label class="fadeIn second" for="system"><b>Project: </b></label>
+      <input type="text" id="projname" class="fadeIn second" name="info" value="{{this.device.currentDevice.projname}}"><br>
+      <label class="fadeIn second" for="system"><b>Installation Company: </b></label>
+      <input type="text" id="company" class="fadeIn second" name="info" value="{{this.device.currentDevice.instcompany}}"><br>
+      <label class="fadeIn second" for="system"><b>Installation Date: </b></label>
+      <input type="date" id="date" class="fadeIn second" name="info" value="{{this.device.currentDevice.dateinst}}"><br>
+      <label class="fadeIn second" for="system"><b>Latitude: </b></label>
+      <input type="number" id="latitude" class="fadeIn second" name="info" value="{{this.device.currentDevice.lat}}"><br>
+      <label class="fadeIn second" for="system"><b>Longitude: </b></label>
+      <input type="number" id="longitude" class="fadeIn second" name="info" value="{{this.device.currentDevice.lng}}"><br>
+        <input routerLink="/9" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Add Device" (click)='changeValues()'>
         <div class="progress">
           <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
         </div>

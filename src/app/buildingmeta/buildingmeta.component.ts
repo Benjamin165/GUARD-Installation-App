@@ -2,26 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { CurrentdeviceService } from '../currentdevice.service';
 
 @Component({
-  selector: 'app-second',
-  templateUrl: './second.component.html',
-  styleUrls: ['./second.component.scss']
+  selector: 'app-buildingmeta',
+  templateUrl: './buildingmeta.component.html',
+  styleUrls: ['./buildingmeta.component.scss']
 })
-export class SecondComponent implements OnInit {
+export class BuildingmetaComponent implements OnInit {
+  selectedLevel;
   selectedApplication: string = '';
-  code: string = 'test-code';
   applications: any = [
     'rockfall protection system',
     'debris flow protection system',
-    'avalanche protection system',
-    'other'
+    'avalanche protection system'
   ];
 
   constructor(
     public CurDevService: CurrentdeviceService,
-  ) { }
+    ) { }
 
   ngOnInit(): void {
   }
+
   radios = document.getElementsByName('application');
   noneChecked: boolean = true;
 
@@ -31,13 +31,31 @@ export class SecondComponent implements OnInit {
   }
 
   setApplication(){
-    this.CurDevService.createNew(this.code);
     this.CurDevService.currentDevice.application = this.selectedApplication;
+    this.CurDevService.currentDevice.system = this.selectedLevel;
     console.log(this.CurDevService.currentDevice);
   }
   
   inputEmpty() {
-    return this.selectedApplication === '';
+    return (this.selectedApplication === '' || this.selectedLevel === '');
+  }
+
+  
+
+  isRockfallSystem() {
+    return this.selectedApplication === 'rockfall protection system'
+  }
+
+  isDFSystem() {
+    return this.selectedApplication === 'debris flow protection system';
+  }
+
+  isAvalancheSystem() {
+    return this.selectedApplication === 'avalanche protection system';
+  }
+
+  applicationSelected() {
+    return this.selectedApplication !== '';
   }
 
 

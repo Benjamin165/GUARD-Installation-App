@@ -1,0 +1,39 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
+        <p id="title">Placeholder: What type of application is building?</p>
+      </div>
+  
+      <div *ngFor="let application of applications">
+        <input
+        class='fadeIn second'
+        type="radio"
+        name='application'
+        value='{{application}}'
+        (change)='radioChangeHandler($event)'>
+        <i>{{application}}</i>
+      </div>
+      <div *ngIf='applicationSelected()'>
+        <label class="fadeIn second" for="system">Select your system: </label><br>        
+        <select *ngIf="isRockfallSystem()" class="fadeIn second" name="system" id="system" [(ngModel)]='selectedLevel'>
+          <option value="gbe">GBE</option>
+          <option value="rxe">RXE</option>
+          <option value="other">other</option>
+        </select>    
+        <select *ngIf="isDFSystem()" class="fadeIn second" name="system" id="system" [(ngModel)]='selectedLevel'>
+          <option value="ux">UX</option>
+          <option value="vx">VX</option>
+          <option value="other">other</option>
+        </select>  
+        <select *ngIf="isAvalancheSystem()" class="fadeIn second" name="system" id="system" [(ngModel)]='selectedLevel'>
+          <option value="spider">Spider AVA</option>
+          <option value="other">other</option>
+        </select>          
+      </div>
+      <input routerLink="/guards" routerLinkActive="active" type='submit' [disabled]='inputEmpty()' (click)='setApplication()' class='fadeIn third' value='Add Guards'> 
+    </div>
+  </div>

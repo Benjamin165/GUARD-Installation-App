@@ -9,10 +9,19 @@ import { CurrentdeviceService } from '../currentdevice.service';
 export class EigthComponent implements OnInit {
 
   constructor(
-    public CurDevService: CurrentdeviceService,
+    public device: CurrentdeviceService,
     ) { }
 
   ngOnInit(): void {
   }
-
+  
+  changeValues() {
+    this.device.currentDevice.id = document.getElementById('devId').textContent;
+    this.device.currentDevice.application = document.getElementById('appl').innerHTML;
+    this.device.currentDevice.system = document.getElementById('sys').innerHTML;
+    this.device.currentDevice.ropediam = document.getElementById('ropeDia').innerHTML;
+    this.device.currentDevice.projname = document.getElementById('projname').innerHTML;
+    this.device.currentDevice.instcompany = document.getElementById('company').innerHTML;
+    console.log(this.device.currentDevice.id)
+  }
 }
