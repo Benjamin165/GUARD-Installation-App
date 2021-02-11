@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrentdeviceService } from '../currentdevice.service';
+import { CurrentprojectService } from '../currentproject.service';
+import { Project } from '../project';
+import { Building } from '../building';
+import { BuildingsService } from '../buildings.service';
+import { CurrentbuildingService } from '../currentbuilding.service';
 
 @Component({
   selector: 'app-buildingmeta',
@@ -7,6 +12,7 @@ import { CurrentdeviceService } from '../currentdevice.service';
   styleUrls: ['./buildingmeta.component.scss']
 })
 export class BuildingmetaComponent implements OnInit {
+  id = 0;
   selectedLevel;
   selectedApplication: string = '';
   applications: any = [
@@ -17,6 +23,9 @@ export class BuildingmetaComponent implements OnInit {
 
   constructor(
     public CurDevService: CurrentdeviceService,
+    public curproj: CurrentprojectService,
+    public curbuild: CurrentbuildingService,
+    public buildings: BuildingsService,
     ) { }
 
   ngOnInit(): void {
@@ -30,10 +39,16 @@ export class BuildingmetaComponent implements OnInit {
     console.log(this.CurDevService.currentDevice.id);
   }
 
+
+  //momentan wird building erstellt und an projects gehängt: Wenn nun guards an curbuild angehängt werden ist dieser nicht der in der projectslist
   setApplication(){
+    this.curbuild.createNew(this.id);
+    this.id++;
+    this.curbuild.currentBuilding.application = this.selectedApplication;
+    this.curbuild.currentBuilding.system = this.selectedLevel;
     this.CurDevService.currentDevice.application = this.selectedApplication;
     this.CurDevService.currentDevice.system = this.selectedLevel;
-    console.log(this.CurDevService.currentDevice);
+    this.curproj.currentProject.addBuilding(this.curbuild.currentBuilding);
   }
   
   inputEmpty() {

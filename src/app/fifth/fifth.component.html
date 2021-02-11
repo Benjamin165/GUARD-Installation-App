@@ -5,7 +5,7 @@
       <!-- Icon -->
       <div class="fadeIn first">
         <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
-        <p id="title">Where was the barrier and GUARD installed?</p>
+        <p id="title">Choose the exact location where the GUARD is installed</p>
       </div>
   
       <!-- Geolocation -->
@@ -14,7 +14,7 @@
       <input type="text" id="lng" class="fadeIn second" name="position" placeholder="longitude" [(ngModel)]='lng'><br>
       <button type="button" (click)="getLocation()" class="btn btn-primary">Locate me</button>
       <p id="demo"></p>  
-      <input routerLink="/8" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next" [disabled]='inputEmpty()' (click)='submitData()'>
+      <input routerLink="/6" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next" [disabled]='inputEmpty()' (click)='submitData()'>
       <div class="progress">
         <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 62.5%" aria-valuenow="62.5" aria-valuemin="0" aria-valuemax="100"></div>
       </div>

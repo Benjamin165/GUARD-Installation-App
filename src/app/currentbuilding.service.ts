@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Device } from './device';
+import { Building } from './building';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CurrentdeviceService {
-
-  currentDevice: Device;
+export class CurrentbuildingService {
+  currentBuilding: Building;
 
   createNew(id){
     // TODO: after API has been implemented: first check if ID is already in system
-    this.currentDevice = new Device();
-    this.currentDevice.id = id;
+    this.currentBuilding = new Building();
+    this.currentBuilding.id = id;
   }
+
   constructor() { }
 }

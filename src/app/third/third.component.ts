@@ -26,20 +26,8 @@ export class ThirdComponent implements OnInit {
     this.ropeDiameter= value;    
   }
 
-  isRockfallSystem() {
-    return this.CurDevService.currentDevice.application === 'rockfall protection system'
-  }
-
-  isDFSystem() {
-    return this.CurDevService.currentDevice.application === 'debris flow protection system';
-  }
-
-  isAvalancheSystem() {
-    return this.CurDevService.currentDevice.application === 'avalanche protection system';
-  }
-
   inputEmpty(){
-    if (this.selectedLevel === '' || this.ropediam === ''){
+    if (this.selectedLevel === ''){
       return true;
     }
   }
@@ -50,8 +38,7 @@ export class ThirdComponent implements OnInit {
   }
 
   submitData(){
-    this.CurDevService.currentDevice.system = this.selectedLevel;
-    this.CurDevService.currentDevice.ropediam = this.ropediam;
+    this.CurDevService.currentDevice.ropediam = this.selectedLevel;
     console.log(this.CurDevService.currentDevice);
   }
 }

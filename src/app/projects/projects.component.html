@@ -5,12 +5,23 @@
       <!-- Icon -->
       <div class="fadeIn first">
         <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
-        <p id="title">Your projects</p>
+        <p id="title"><b>Your projects</b></p>
       </div>
-      <p>todo: grab projects for login</p>
+      <div id="projects">
+        <table id="projectsTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Project Name</th>
+              <th>Installation Company</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
   
       <form>
-        <input routerLink="/projectmeta" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Add Project" (click)='initProject()'>
+        <input routerLink="/projectmeta" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Add new project" (click)='initProject()'>
       </form> 
   
   

@@ -5,18 +5,13 @@
       <!-- Icon -->
       <div class="fadeIn first">
         <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
-        <p id="title">Please provide the following information</p>
+        <p id="title">Date of Installation</p>
       </div>
-  
-      <input type="text" id="projname" class="fadeIn second" name="info" placeholder="customer project name" [(ngModel)]='projname'>
-      <input type="text" id="company" class="fadeIn second" name="info" placeholder="installation company" [(ngModel)]='company'> 
-      <br>
-      <p id="datetag" class="fadeIn third">date of installation:</p> 
       <input type="date" id="date" class="fadeIn third" name="info" value="" [(ngModel)]='date'>
       <br>
       <input routerLink="/5" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Next" [disabled]='inputEmpty()' (click)='submitData()'>
       <div class="progress">
-        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 66.6%" aria-valuenow="66.6" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
   
   

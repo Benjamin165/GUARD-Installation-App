@@ -5,9 +5,21 @@
     <!-- Icon -->
     <div class="fadeIn first">
       <img src="https://projectdetailsjson.netlify.app/picturesjpeg/Logo_Claim_RGB.png" id="icon" alt="User Icon" />
-      <p id="title">The project's buildings</p>
+      <p id="title"><b>The project's protection systems</b></p>
     </div>
-    <p>todo: buildinglist</p>
+    <div id="buildings">
+      <table id="projectsTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Application</th>
+            <th>System</th>
+            <th>Rope Diameter</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
 
     <form>
       <input routerLink="/buildingmeta" routerLinkActive="active" type="submit" class="fadeIn fourth" value="Add Building">
