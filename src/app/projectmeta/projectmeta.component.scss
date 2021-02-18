@@ -39,13 +39,14 @@ h1 {
   input[type=button], input[type=submit], input[type=reset]  {
     background-color: rgba(131, 146, 155);
     border: none;
+    max-width: 100%;
     color: white;
-    padding: 15px 80px;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: small;
     -webkit-box-shadow: 0 10px 30px 0 rgba(131, 146, 155, 0.4);
     box-shadow: 0 10px 30px 0 rgba(131, 146, 155, 0.4);
     -webkit-border-radius: 5px 5px 5px 5px;
@@ -100,6 +101,10 @@ h1 {
     color: #cccccc;
   }
   
+  
+  input[type=submit]:disabled, input[type=button]:disabled {    
+    background-color: #b15252;
+  }
   
   
   /* ANIMATIONS */

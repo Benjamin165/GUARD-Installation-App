@@ -100,7 +100,9 @@ input[type=text]:placeholder {
   color: #cccccc;
 }
 
-
+input[type=submit]:disabled, input[type=button]:disabled {    
+  background-color: #b15252;
+}
 
 /* ANIMATIONS */
 

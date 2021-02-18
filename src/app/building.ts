@@ -4,7 +4,6 @@ export class Building{
     id: string;
     application: string;
     system: string;
-    ropediam: string;
     dateinst: Date;
     lat: number;
     lng: number;
